@@ -48,4 +48,4 @@ Bonus Task (Optional):
 ● Add a max_depth parameter.
 ● Print the tree in a pretty format (if Alcohol < 10.0: -> go left etc.)
 
-Note : Look into decision tree.png for more details regarding decision tree.
+Note : Look into decision tree.jpg for more details regarding decision tree.
