@@ -48,4 +48,10 @@ Bonus Task (Optional):
 ● Add a max_depth parameter.
 ● Print the tree in a pretty format (if Alcohol < 10.0: -> go left etc.)
 
-Note : Look into decision tree.jpg for more details regarding decision tree.
+Note : Look into decision tree.png for more details regarding decision tree.
+
+Key Insights and Further Improvements that can be done :
+Through this , I learnt how the decision tree classifier works internally.
+Also , the branching factor of the decision tree can be passed as a parameter which can be a good improvement of the model.
+
+

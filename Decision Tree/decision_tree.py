@@ -1,6 +1,8 @@
 import numpy as np
 
 # Step 2 : Implement Gini Impurity
+# Gini impirity function is used to measure the impurity of a dataset
+# It is calculated as 1 - sum(p_i^2) where p_i is the proportion of each class in the dataset
 def gini_impurity(y):
     length = len(y)
     freq = {1:0,2:0,3:0}
@@ -12,6 +14,8 @@ def gini_impurity(y):
     return (1-(freq[1]*freq[1]) - (freq[2]*freq[2])-(freq[3]*freq[3]) )
 
 # Bonus Task : Using Entropy function as a measurement of impuurity
+# Entropy is a measure of impurity in a dataset
+# It is calculated as -sum(p_i * log2(p_i)) where p_i is the proportion of each class in the dataset
 def entropy(y):
     length = len(y)
     counter = {1: 0, 2: 0, 3: 0}
@@ -27,6 +31,9 @@ def entropy(y):
 
 
 # Step 3: Implement the best split among all
+# The best split is the one that minimizes the impurity of the dataset
+# We loop out through all the features and all the possible thresholds for splitting the dataset 
+# and calculate the impurity for each split. We use boolean masking to split the dataset
 
 def best_split(X,y,impurity_function):
     best_feature, best_threshold, best_gain = None, None, float('inf')
@@ -63,9 +70,13 @@ class Node:
         self.right = right
         self.value = value
 
+# Recursive function to build the decision tree
+# The function takes the dataset, labels, depth of the tree, maximum depth, minimum samples and impurity function as input
+# The function returns a node object which contains the feature index, threshold, left and right child nodes and value
 def recursive_tree_build(X, y, depth=0, max_depth=3, min_samples=1,impurity_function=gini_impurity):
 
     # Nested function for finding majority
+
     def majority_vote(y):
         labels = list(set(y))  # Unique class labels
         max_count = 0
@@ -98,6 +109,8 @@ def recursive_tree_build(X, y, depth=0, max_depth=3, min_samples=1,impurity_func
     return Node(feature_index = feature,threshold = threshold,left=left_child,right=right_child)
 
 # Step 5 : Implement Prediction
+# The prediction function takes the dataset and the tree as input
+# It traverses the tree and returns the predicted labels for each sample in the dataset
 
 def prediction(X,tree_rec):
     prediction_values = []
@@ -146,6 +159,7 @@ def evaluate():
     feature_names = ["Alcohol", "Sugar", "Colour"]
 
     # Bonus Task : Print the decision tree
+    
 
     def plot_tree(node, depth=0):
         indentation = "    " * depth
